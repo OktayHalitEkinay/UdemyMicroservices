@@ -16,7 +16,7 @@ builder.Services.Configure<MongoDbSettings>(configuration.GetRequiredSection("Mo
 //News
 
 builder.Services.AddScoped<IMongoDbSettings>(serviceProvider =>
-        serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value); ;
+        serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
 builder.Services.AddScoped<ICategoryDal,MongoCategoryDal >();
 builder.Services.AddScoped<ICategoryService,CategoryManager>();
 
