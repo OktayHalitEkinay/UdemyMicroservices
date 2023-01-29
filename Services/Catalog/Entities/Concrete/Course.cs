@@ -1,4 +1,5 @@
-﻿using Core.Entities.Concrete;
+﻿using Core.Attributes;
+using Core.Entities.Concrete;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
@@ -9,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Course:Document
+    [BsonCollection("Courses")]
+    public class Course : MongoDbEntity
     {
         public string Name { get; set; }
         [BsonRepresentation(BsonType.Decimal128)]

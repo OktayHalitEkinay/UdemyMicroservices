@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace Core.Entities.Abstract
 {
-    public interface IDocument
+    public interface IEntity
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        ObjectId Id { get; set; }
+    }
 
-        DateTime CreatedAt { get; }
+    public interface IEntity<out TKey> : IEntity where TKey : IEquatable<TKey>
+    {
+        public TKey Id { get; }
+        DateTime CreatedAt { get; set; }
     }
 }
